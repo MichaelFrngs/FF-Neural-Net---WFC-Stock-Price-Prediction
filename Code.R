@@ -16,16 +16,16 @@ WhereToSplitDataSet = 29     #Which row should we split the data into two sets (
 
 
 
-#Setting a seed makes sure you get the same numbers every time.
+
 set.seed(123)
 
 dim(InitialDataSet) #Shows dimensions of the InitialDataSet
 
 #Lets take a look at the target variable
-hist(InitialDataSet[,TargetVariable]) #We see that the data is left skewed
+hist(InitialDataSet[,TargetVariable])
 
 #The apply function applies a function to either columns(1)/rows(2)/both(c(1,2)). In this case, we're getting the range of every column
-apply(InitialDataSet,2,range) #Range returns the minimum & the maximum. We see that the scale of each variable is not the same. 
+apply(InitialDataSet,2,range) #Range returns the minimum & the maximum. 
 
 #Get the max of every column
 maxValue = apply(InitialDataSet,2,max)
@@ -42,7 +42,7 @@ data.sample.rowindex = sample(1:nrow(InitialDataSet),WhereToSplitDataSet)
 saved.X.Values = InitialDataSet[-data.sample.rowindex,!allVars%in%TargetVariable]
 #Create training set & test set using a sample of the data
 trainDF= InitialDataSet.normalized[data.sample.rowindex,]
-testDF = InitialDataSet.normalized[-data.sample.rowindex,] #Somehow, this gives us the unused dataset. Not sure how.
+testDF = InitialDataSet.normalized[-data.sample.rowindex,] 
 
 
 #we'll merge this with our predictions later. Reads as "all vars that are not the target variable"
