@@ -10,11 +10,9 @@ library(neuralnet)
 #Sets Target Variable (variable we're predicting) 
 #Set this to the name of the column you're predicting.
 TargetVariable = "Stock.Price" #You can enter two variables using c("x1",x2"). 
-
 NeuralNetNodeStructure =  c(30,50) #first hidden layer is 4 nodes, second hidden layer is 2 nodes
 WhereToSplitDataSet = 29     #Which row should we split the data into two sets (training/test set)
-
-########END OF INPUTS#########
+########END
 
 
 
